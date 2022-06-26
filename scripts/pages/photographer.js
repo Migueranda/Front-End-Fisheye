@@ -58,7 +58,6 @@ async function displayData(photographers, media) {
     console.log(somme);
 };
 
-
 function mediaSort(data, sort){
     if (sort == "date") { // tri date
         data.sort((a,b) => Date.parse(b.date) - Date.parse(a.date))
@@ -88,11 +87,12 @@ async function init(sort) {
     // tri du tableau
     global_media = mediaSort(media, sort)    
     // affichage de la page
-    displayData(photographers, global_media);  
+    displayData(photographers, global_media) 
     // gestion des likes
     likes();
     // gestion pop up modal light box      
     lightBoxModal(global_media);
+    setModalContent(photographers);
     //______________________
     // changeSlide(sens);
     // global_media = media2   

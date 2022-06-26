@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" xml:lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <link href="css/tablette_photographers.css" rel="stylesheet" type="text/css"/> 
+    <link href="css/mobile_photographers.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+     
+    <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/307c15301f.js" crossorigin="anonymous"></script>
@@ -12,71 +17,71 @@
   </head>
   <body>
     <header>
-     <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <h1><a href="index.html" aria-label="homepage"><img src="assets/images/logo.png" class="logo"  id="logo" alt="logo principal fishaye" role="img"/></a></h1>      
     </header>
-    <main id="main">
+    <main id="main" role="main">
       <div class="photograph-header">
-        <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
-      <!-- <div class="photograph-media"></div> -->
       <div class="form_trie">
           <p>Trier par</p>
-        <!-- select - stop -->
-        <!-- <div class="select" style="width:130px;">      
-          <select id="select_media">
-              <option value="popularite">Popularité</option>
-              <option value="date">Date</option>
-              <option value="titre">Titre</option>            
-          </select> 
-        </div>        -->
-
-        <!-- construction d'un select only via div - start -->
-        <div class="select">    
-          <div class="select-styled"><span id="text-popularite">Popularité</span></div>
-          <ul class="select-options" style="display: none;">
-            <li rel="popularite">Popularité</li>
-            <li rel="date">Date</li>
-            <li rel="titre">Titre</li>
-          </ul>
-        </div>
-      </div>      
-      <section class="media"></section>
-
+          <!-- construction d'un select only via div - start -->
+          <div class="select">  
+            <a href="#" class="select_link"><div class="select-styled"><span id="text-popularite">Popularité</span></div></a>
+              <nav role="navigation"> 
+                <ul class="select-options" style="display: none;">
+                  <a href="#"><li rel="popularite">Popularité</li></a>
+                  <a href="#"><li rel="date">Date</li></a>
+                  <a href="#"><li rel="titre">Titre</li></a>
+                </ul>
+              </nav>
+            </div>
+          </div>
+           
+        <section class="media"></section>
+      
       <div class="rectangle_media">
         <div class="total_likes">0</div>
-        <div><i class="fas fa-heart" id="icon_heart"></i></div>
+        <div><em class="fas fa-heart" id="icon_heart"></em></div>
         <div class="total_prix">0&#8364 / jour</div>
       </div>
-
     </main>
-    <div id="contact_modal">
+
+    <div id="contact_modal" aria-label="Modale">
 			<div class="modal">
-				<header>         
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<header class="modal_titre">         
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-           <label>Nom</label> <input/>
-           <label>Email</label> <input/>
-           <label>Votre message</label> <input/>
-					</div>
-          <button class="contact_button">Envoyer</button>
+				<form name="reserve" action="index.html"  method="post" id="formulaire" >
+                  
+					<div class="formData" data-error="Veuillez indiquer votre prénom dans ce champ" id="form-data-first-name">
+						<label for="first_name">Prénom</label>
+            <input class="text-control" type="text" id="first_name" name="first_name"  placeholder="Prénom"
+            />
+          </div>
+          <div class="formData" data-error="Veuillez indiquer votre nom dans ce champ" id="form-data-last-name">  
+            <label for="last_name">Nom</label>
+            <input type="text" name="last_name" id="last_name" class="text-control" placeholder="Nom"
+            />
+          </div>
+          <div class="formData" data-error="Veuillez indiquer votre adresse e-mail" id="form-data-email">  
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" class="text-control" placeholder="E-mail"/> 
+          </div>
+          <div class="formData" data-error="Veuillez saisir votre message" id="form-data-message">                
+            <label for="message">Votre message</label>
+            <textarea type="text" name="message" id="message" class="text-control" placeholder="Votre message"></textarea>
+          </div>
+          <button type="submit" class="contact_button" id="contact_button" role="button">Envoyer </button>
 				</form>
 			</div>
 		</div>
-
-    <div id="lightbox_modal">
-      <div class="lightboxmodal">
-        <!-- <span class="chevron-left" id="precedent" onclick="changeSlide(-1)"><i class="fa-solid fa-chevron-left"></i></span> -->
-        <div class="media_lightbox"></div>
-        <!-- <span class="chevron-right" id="suivant" onclick="changeSlide(1)"><i class="fa-solid fa-chevron-right"></i></span> -->
-        
-        <div id="closeLightBoxModal"><ion-icon name="close-outline" onclick="closeLightBoxModal()" ></ion-icon></div>
-        <!-- <img src="assets/icons/close.svg" onclick="closeLightBoxModal()" id="closeLightBoxModal" /> -->
+  <div id="parent_lightbox_modal" role="modale">
+      <div id="lightbox_modal">
+        <div class="lightboxmodal">       
+          <div class="media_lightbox"></div>
+          <div id="closeLightBoxModal"><ion-icon name="close-outline" onclick="closeLightBoxModal()"></ion-icon></div>
+        </div>
       </div>
-    </div>
+    </div>    
     <!-- Utils -->
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/select.js"></script> 

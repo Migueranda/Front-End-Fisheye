@@ -2,11 +2,12 @@
 // par defaut, initialisation 
 choiceSelect = "popularite"
 // div select
-styledSelect = document.querySelector('div.select-styled')
+// styledSelect = document.querySelector('div.select-styled')
+styledSelect = document.querySelector('a.select_link')
 // list option
 listSelect = document.querySelector('ul.select-options')
 // options
-optionsSelect = document.querySelectorAll('ul.select-options > li')
+optionsSelect = document.querySelectorAll('ul.select-options > a > li')
 
 // gestion affichage dropdown listbox
 styledSelect.addEventListener('click', function(event){

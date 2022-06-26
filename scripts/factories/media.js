@@ -9,26 +9,28 @@ function mediaFactory(data, type){
         let multimedia = '';
 
         if(video == undefined){
-            multimedia = `<img src="assets/images/${image}" alt="${title}" class="media lightbox_select" />`
+            multimedia = `<a href="#"><img src="assets/images/${image}" alt="${title}" class="media lightbox_select" role="img" /></a>`
         }else{  
             multimedia = `
                 <video controls class="lightbox_select">
-                <source src="assets/images/${video}" type="video/mp4"></source> 
-                <source src="assets/images/${video}" type="video/webm"></source>            
+                <source src="assets/images/${video}" type="video/mp4" alt="${title}"></source> 
+                <source src="assets/images/${video}" type="video/webm" alt="${title}"></source>            
                 </video> `
         }        
         const section = document.createElement('div');
         section.className = 'section_media';// ajout d'une class
+        // section.className = 'section_media';
+        // const section = document.createElement('a');
 
     let html = multimedia + `<div class="media_caption">
                                 <h3 class="titre_media">${title}</h3> 
                                 <div class="media_cont_like-heart">
-                                    <h4 class="nbr_likes">${likes}</h4> 
-                                    <div class='like_icon-media'>
+                                    <h4 class="nbr_likes">${likes}</h4>
+                                      <button name="heart" class='like_icon-media'>  
                                         <ion-icon name="heart">
-                                            <div class='red-bg'></div>
-                                        </ion-icon>
-                                    </div>                                                                                                           
+                                        <div class='red-bg'></div>
+                                        </ion-icon>                                         
+                                    </button>                                                                                                                
                                 </div>
                             </div>
                             `
@@ -61,7 +63,7 @@ function mediaFactory(data, type){
                 <div class="container_photograph">                        
                     <h2 class="nom">${name}</h2>                                 
                     <h3 class="city_country">${city}, ${country}</h3>
-                    <h4>${tagline}</h4>
+                    <h4 class="tagline">${tagline}</h4>
                 </div>    
                 <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
                     <img src="${picture}" alt="${name}" class="photograph"/>                   
